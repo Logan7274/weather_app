@@ -1,9 +1,7 @@
 # weather_app
 
 ---
-<img src="gui_sample1.png" width="48%" /> <img src="gui_sample2.png" width="48%" /> 
-![GUI Preview](gui_sample1.png) 
-![GUI Preview](gui_sample2.png)
+<img src="gui_sample1.png" width="48%" /> <img src="gui_sample2.png" width="48%" />
 
 ---
 
