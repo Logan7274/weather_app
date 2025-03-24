@@ -13,6 +13,8 @@ class WeatherApp(QWidget):
         self.temperature = QLabel(self)
         self.emoji_label = QLabel(self)
         self.description_label = QLabel( self)
+        self.humid_emoji = QLabel(self)
+        self.wind_label = QLabel(self)
         self.initui()
 
     def initui(self):
@@ -25,6 +27,8 @@ class WeatherApp(QWidget):
         vbox.addWidget(self.temperature)
         vbox.addWidget(self.emoji_label)
         vbox.addWidget(self.description_label)
+        vbox.addWidget(self.humid_emoji)
+        vbox.addWidget(self.wind_label)
 
         self.setLayout(vbox)
 
@@ -33,6 +37,8 @@ class WeatherApp(QWidget):
         self.temperature.setAlignment(Qt.AlignCenter)
         self.emoji_label.setAlignment(Qt.AlignCenter)
         self.description_label.setAlignment(Qt.AlignCenter)
+        self.humid_emoji.setAlignment(Qt.AlignCenter)
+        self.wind_label.setAlignment(Qt.AlignCenter)
 
         self.city_label.setObjectName("city_label")
         self.city_input.setObjectName("city_input")
@@ -67,6 +73,7 @@ class WeatherApp(QWidget):
             QLabel#description_label{
                 font-size : 50px;
             }
+            
         
         """)
 
@@ -131,13 +138,19 @@ class WeatherApp(QWidget):
     def display_weather(self , data):
         temperature_k = data["main"]["temp"]
         temperature_c = temperature_k - 273.15
+        humid = data["main"]["humidity"]
+        wind = data["wind"]["speed"]
         self.temperature.setStyleSheet("color: black;"
                                        "font-size : 75px;")
-        self.temperature.setText(f"{temperature_c:.0f}°C")
+        self.temperature.setText(f"🌡️ {temperature_c:.0f}°C")
+        self.humid_emoji.setStyleSheet("font-size : 60px;")
+        self.wind_label.setStyleSheet("font-size : 60px;")
         weather_description = data["weather"][0]["description"]
         self.description_label.setText(weather_description)
         weather_id = data["weather"][0]["id"]
         self.emoji_label.setText(self.get_weather_emoji(weather_id))
+        self.humid_emoji.setText(f"💦 {humid} %")
+        self.wind_label.setText(f"🍃 {wind} m/s")
 
     @staticmethod
     def get_weather_emoji(weather_id):
@@ -163,18 +176,6 @@ class WeatherApp(QWidget):
             return "☁️"
         else:
             return ""
-
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
