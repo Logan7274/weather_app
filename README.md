@@ -1,11 +1,12 @@
 # weather_app
 
 ---
-![GUI Preview](gui_sample.png) <!-- Replace with your screenshot path -->
-
-A lightweight desktop weather tool powered by OpenWeatherMap API.
+<img src="gui_sample1.png" width="48%" /> <img src="gui_sample2.png" width="48%" /> 
+![GUI Preview](gui_sample1.png) 
+![GUI Preview](gui_sample2.png)
 
 ---
+
 ## Features
 - Real-time city weather lookup
 - Temperature/Humidity/Wind speed display
