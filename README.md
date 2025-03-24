@@ -39,4 +39,6 @@ pip install PyQt5 requests
 
 ---
 
+This project is based on a tutorial from BroCode. I learned how to build a weather app using Python and PyQt5, and made some modifications to suit my needs.
+
 #### If you encounter any other issues, feel free to open an issue on the GitHub repository.
